@@ -107,7 +107,7 @@ async function _sendNextLogBatchAsync(batch: Array<LogEntry>, logUrl: string): P
         Connection: 'keep-alive',
         'Proxy-Connection': 'keep-alive',
         Accept: 'application/json',
-        'Device-Id': Constants.deviceId,
+        'Device-Id': Constants.installationId,
         'Device-Name': Constants.deviceName,
         'Session-Id': _sessionId,
       },
