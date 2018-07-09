@@ -239,12 +239,13 @@ export async function createAlbumAsync(albumName: string, asset?: AssetRef): Pro
 
 export async function getAssetsAsync(assetsOptions: AssetsOptions = {}): Promise<PagedInfo<Asset>> {
   const { first, after, album, sortBy, mediaType } = assetsOptions;
+
   const options = {
-    first,
+    first: first == null ? 20 : first,
     after: getId(after),
     album: getId(album),
     sortBy: arrayize(sortBy),
-    mediaType: arrayize(mediaType),
+    mediaType: arrayize(mediaType || [MediaType.photo, MediaType.video]),
   };
 
   if (first != null && typeof options.first !== 'number') {
