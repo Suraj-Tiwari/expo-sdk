@@ -43,8 +43,8 @@ type Asset = {
   mediaSubtypes?: Array<string>, // iOS only
   width: number,
   height: number,
-  createdAt: number,
-  modificatedAt: number,
+  creationTime: number,
+  modificationTime: number,
   duration: number,
   albumId?: string, // Android only
 };
@@ -53,6 +53,7 @@ type AssetInfo = Asset & {
   localUri?: string,
   location?: Location,
   exif?: Object,
+  isFavorite?: boolean, //iOS only
 };
 
 type Location = {
@@ -67,8 +68,8 @@ type Album = {
   type?: string, // iOS only
 
   // iOS moments only
-  startedAt: number,
-  endedAt: number,
+  startTime: number,
+  endTime: number,
   approximateLocation?: Location,
   locationNames?: Array<string>,
 };
