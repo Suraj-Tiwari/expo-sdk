@@ -214,7 +214,7 @@ module.exports = {
     }
   },
   get Permissions() {
-    return require('./Permissions');
+    return require('expo-permissions').Permissions;
   },
   get Print() {
     return require('./Print');
@@ -236,6 +236,9 @@ module.exports = {
   },
   get Segment() {
     return require('./Segment').default;
+  },
+  get SMS() {
+    return require('expo-sms').SMS;
   },
   get Speech() {
     return require('./Speech');
