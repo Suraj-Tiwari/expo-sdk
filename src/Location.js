@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 
-import * as Permissions from './Permissions';
+import { Permissions } from 'expo-permissions';
 
 const LocationEventEmitter = new NativeEventEmitter(NativeModules.ExponentLocation);
 

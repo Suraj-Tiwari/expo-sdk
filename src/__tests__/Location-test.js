@@ -7,7 +7,7 @@ import {
   mockPlatformAndroid,
 } from '../../test/mocking';
 import Location from '../Location';
-import * as Permissions from '../Permissions';
+import { Permissions } from 'expo-permissions';
 
 const fakeReturnValue = {
   coords: {
