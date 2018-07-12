@@ -220,7 +220,11 @@ export async function getAlbumAsync(title: string): Promise<Album> {
   return MediaLibrary.getAlbumAsync(title);
 }
 
-export async function createAlbumAsync(albumName: string, asset?: AssetRef): Promise<Album> {
+export async function createAlbumAsync(
+  albumName: string,
+  asset?: AssetRef,
+  copyAsset?: boolean = true
+): Promise<Album> {
   const assetId = getId(asset);
 
   if (Platform.OS === 'android' && (typeof assetId !== 'string' || assetId.length === 0)) {
@@ -234,7 +238,8 @@ export async function createAlbumAsync(albumName: string, asset?: AssetRef): Pro
     throw new Error('Asset ID must be a string!');
   }
 
-  return MediaLibrary.createAlbumAsync(albumName, assetId);
+  if (Platform.OS === 'ios') return MediaLibrary.createAlbumAsync(albumName, assetId);
+  return MediaLibrary.createAlbumAsync(albumName, assetId, !!copyAsset);
 }
 
 export async function getAssetsAsync(assetsOptions: AssetsOptions = {}): Promise<PagedInfo<Asset>> {
