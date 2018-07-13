@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { NativeModules } from 'react-native';
 import { EventEmitter } from 'fbemitter';
 
 import NativeAppLoading from './AppLoadingNativeWrapper';
@@ -8,7 +9,8 @@ type Props =
   | {
       startAsync: () => Promise<void>,
       onError?: (error: Error) => void,
-      onFinish: () => void,
+      onFinish?: () => void,
+      autoHideSplash?: boolean,
     }
   | {
       startAsync: null,
@@ -64,7 +66,7 @@ export default class AppLoading extends React.Component<Props> {
   };
 
   render() {
-    return <NativeAppLoading />;
+    return <NativeAppLoading  {...this.props}/>;
   }
 }
 

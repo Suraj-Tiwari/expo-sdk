@@ -243,6 +243,9 @@ module.exports = {
   get Speech() {
     return require('./Speech');
   },
+  get SplashScreen() {
+    return require('./launch/SplashScreen');
+  },
   get StoreReview() {
     return require('./StoreReview');
   },
