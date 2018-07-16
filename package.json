@@ -21,7 +21,12 @@
   "jest": {
     "preset": "jest-expo",
     "clearMocks": true,
-    "testRegex": "/__tests__/.*-test\\.js$"
+    "testRegex": "/__tests__/.*-test\\.js$",
+    "setupFiles": [
+      "<rootDir>/node_modules/react-native/jest/setup.js",
+      "<rootDir>/node_modules/jest-expo/src/setup.js",
+      "<rootDir>/test/setup.js"
+    ]
   },
   "eslintConfig": {
     "root": true,
