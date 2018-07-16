@@ -298,7 +298,7 @@ export function removeAllListeners(): void {
     MediaLibrary.stopObserving();
   }
 
-  eventEmitter.removeAllListeners();
+  eventEmitter.removeAllListeners('mediaLibraryDidChange');
 }
 
 // iOS only
