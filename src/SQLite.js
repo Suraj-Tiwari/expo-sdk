@@ -22,6 +22,7 @@ function massageError(err) {
 
 function SQLiteDatabase(name) {
   this._name = name;
+  this._closed = false;
 }
 
 function dearrayifyRow(res) {
@@ -72,6 +73,10 @@ function escapeBlob(data) {
 }
 
 SQLiteDatabase.prototype.exec = function exec(queries, readOnly, callback) {
+  if (this._closed) {
+    throw new Error('Database was closed.')
+  }
+
   function onSuccess(rawResults) {
     var results = map(rawResults, dearrayifyRow);
     callback(null, results);
@@ -83,6 +88,11 @@ SQLiteDatabase.prototype.exec = function exec(queries, readOnly, callback) {
 
   ExponentSQLite.exec(this._name, map(queries, arrayifyQuery), readOnly).then(onSuccess, onError);
 };
+
+SQLiteDatabase.prototype.close = function close() {
+  this._closed = true;
+  ExponentSQLite.close(this._name);
+}
 
 const openDB = customOpenDatabase(SQLiteDatabase);
 
