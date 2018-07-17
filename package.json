@@ -16,7 +16,8 @@
   "scripts": {
     "lint": "eslint src tools",
     "prepublishOnly": "proofread",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "ci": "yarn run lint && yarn flow check && yarn jest --ci --maxWorkers 2"
   },
   "jest": {
     "preset": "jest-expo",
