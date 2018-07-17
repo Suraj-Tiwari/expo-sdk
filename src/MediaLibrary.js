@@ -250,7 +250,7 @@ export async function getAssetsAsync(assetsOptions: AssetsOptions = {}): Promise
     after: getId(after),
     album: getId(album),
     sortBy: arrayize(sortBy),
-    mediaType: arrayize(mediaType || [MediaType.photo, MediaType.video]),
+    mediaType: arrayize(mediaType || [MediaType.photo]),
   };
 
   if (first != null && typeof options.first !== 'number') {
