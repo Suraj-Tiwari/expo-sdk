@@ -8,6 +8,7 @@ import { AdIconViewContext } from './withNativeAd';
 const NativeAdIconView = requireNativeComponent('AdIconView', null, {});
 
 class AdIconViewChild extends React.Component<Object> {
+  // $FlowIssue
   adIconViewRef = React.createRef();
 
   componentDidMount() {

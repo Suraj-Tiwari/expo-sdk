@@ -1,6 +1,6 @@
-// @flow
+// @flow-weak
 
-import * as React from 'react';
+import React from 'react';
 import { EmitterSubscription } from 'fbemitter';
 import { requireNativeComponent, findNodeHandle } from 'react-native';
 
@@ -27,8 +27,11 @@ type NativeAdWrapperProps = {
  * returned instead of a component provided.
  */
 
+// $FlowIssue
 export const TriggerableContext = React.createContext();
+// $FlowIssue
 export const MediaViewContext = React.createContext();
+// $FlowIssue
 export const AdIconViewContext = React.createContext();
 
 export default (Component: Function) =>

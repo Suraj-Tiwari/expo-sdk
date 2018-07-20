@@ -8,6 +8,7 @@ import { MediaViewContext } from './withNativeAd';
 const NativeMediaView = requireNativeComponent('MediaView', null, {});
 
 class MediaViewChild extends React.Component<Object> {
+  // $FlowIssue
   nativeMediaViewRef = React.createRef();
 
   componentDidMount() {
