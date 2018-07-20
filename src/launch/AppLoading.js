@@ -66,7 +66,7 @@ export default class AppLoading extends React.Component<Props> {
   };
 
   render() {
-    return <NativeAppLoading  {...this.props}/>;
+    return <NativeAppLoading {...this.props} />;
   }
 }
 

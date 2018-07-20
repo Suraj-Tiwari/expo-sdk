@@ -1,5 +1,6 @@
 import { NativeModules } from 'react-native';
 
+import { Permissions } from 'expo-permissions';
 import {
   mockProperty,
   unmockAllProperties,
@@ -7,7 +8,6 @@ import {
   mockPlatformAndroid,
 } from '../../test/mocking';
 import Location from '../Location';
-import { Permissions } from 'expo-permissions';
 
 const fakeReturnValue = {
   coords: {

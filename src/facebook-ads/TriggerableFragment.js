@@ -7,7 +7,7 @@ type TriggerableFragmentChildPropsType = {
   unregister: (*) => void,
   register: (*) => void,
   children: React.Node,
-}
+};
 
 class TriggerableFragmentChild extends React.Component<TriggerableFragmentChildPropsType> {
   componentDidMount() {

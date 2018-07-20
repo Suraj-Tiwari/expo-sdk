@@ -5,7 +5,7 @@ import * as SplashScreen from './SplashScreen';
 
 type Props = {
   autoHideSplash?: boolean,
-}
+};
 
 export default class AppLoading extends React.Component<Props> {
   constructor(props: Props) {
@@ -14,7 +14,7 @@ export default class AppLoading extends React.Component<Props> {
   }
 
   componentWillUnmount() {
-  	if (this.props.autoHideSplash === undefined || this.props.autoHideSplash) {
+    if (this.props.autoHideSplash === undefined || this.props.autoHideSplash) {
       // Hide immediately in E2E tests
       if (global.__E2E__) {
         SplashScreen.hide();
@@ -23,7 +23,7 @@ export default class AppLoading extends React.Component<Props> {
           SplashScreen.hide();
         }, 200);
       }
-  	}
+    }
   }
 
   render() {

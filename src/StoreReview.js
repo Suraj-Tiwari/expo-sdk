@@ -66,5 +66,5 @@ export function storeUrl() {
     A flag to detect if this module can do anything
 */
 export function hasAction() {
-  return !!storeUrl() || isSupported()
+  return !!storeUrl() || isSupported();
 }

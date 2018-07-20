@@ -30,7 +30,7 @@ export const NotificationTypes = {
   Success: 'success',
   Warning: 'warning',
   Error: 'error',
-}
+};
 
 /**
  * Impact Feedback Style
@@ -60,7 +60,7 @@ export const ImpactStyles = {
   Light: 'light',
   Medium: 'medium',
   Heavy: 'heavy',
-}
+};
 
 /**
  * Triggers notification feedback.

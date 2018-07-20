@@ -74,7 +74,7 @@ function escapeBlob(data) {
 
 SQLiteDatabase.prototype.exec = function exec(queries, readOnly, callback) {
   if (this._closed) {
-    throw new Error('Database was closed.')
+    throw new Error('Database was closed.');
   }
 
   function onSuccess(rawResults) {
@@ -92,7 +92,7 @@ SQLiteDatabase.prototype.exec = function exec(queries, readOnly, callback) {
 SQLiteDatabase.prototype.close = function close() {
   this._closed = true;
   ExponentSQLite.close(this._name);
-}
+};
 
 const openDB = customOpenDatabase(SQLiteDatabase);
 
