@@ -24,6 +24,20 @@ class NativeAdsManager {
   /** {@EventEmitter} used for sending out updates **/
   eventEmitter: EventEmitter = new EventEmitter();
 
+  static async registerViewsForInteractionAsync(
+    nativeAdViewTag,
+    mediaViewTag,
+    adIconViewTag,
+    clickable
+  ) {
+    return await CTKNativeAdManager.registerViewsForInteraction(
+      nativeAdViewTag,
+      mediaViewTag,
+      adIconViewTag,
+      clickable
+    );
+  }
+
   /**
    * Creates an instance of AdsManager with a given placementId and adsToRequest.
    * Default number of ads to request is `10`.

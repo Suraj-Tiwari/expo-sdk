@@ -16,4 +16,13 @@ module.exports = {
   get BannerView() {
     return require('./BannerViewManager').default;
   },
+  get MediaView() {
+    return require('./MediaViewManager').default;
+  },
+  get AdIconView() {
+    return require('./AdIconViewManager').default;
+  },
+  get TriggerableFragment() {
+    return require('./TriggerableFragment').default;
+  },
 };
