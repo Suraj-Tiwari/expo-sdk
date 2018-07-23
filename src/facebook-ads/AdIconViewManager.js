@@ -1,30 +1,42 @@
 // @flow
 
-import React from 'react';
-import { requireNativeComponent } from 'react-native';
+import * as React from 'react';
+import { requireNativeComponent, ViewPropTypes } from 'react-native';
 
 import { AdIconViewContext } from './withNativeAd';
+import type { AdIconViewContextValueType } from './withNativeAd';
 
-const NativeAdIconView = requireNativeComponent('AdIconView', null, {});
+export const NativeAdIconView = requireNativeComponent('AdIconView', null, {});
 
-class AdIconViewChild extends React.Component<Object> {
-  // $FlowIssue
-  adIconViewRef = React.createRef();
+type PropsType = ViewPropTypes & AdIconViewContextValueType;
 
-  componentDidMount() {
-    this.props.register(this.adIconViewRef.current);
-  }
+class AdIconViewChild extends React.Component<PropsType> {
+  _nativeAdIconViewRef: ?React.Node;
+
+  _handleAdIconViewRef = (ref: ?NativeAdIconView) => {
+    if (this._nativeAdIconViewRef) {
+      this.props.unregister(this._nativeAdIconViewRef);
+      this._nativeAdIconViewRef = null;
+    }
+
+    if (ref) {
+      this.props.register(ref);
+      this._nativeAdIconViewRef = ref;
+    }
+  };
 
   render() {
-    return <NativeAdIconView {...this.props} ref={this.adIconViewRef} />;
+    return <NativeAdIconView {...this.props} ref={this._handleAdIconViewRef} />;
   }
 }
 
-class AdIconView extends React.Component<Object> {
+class AdIconView extends React.Component<ViewPropTypes> {
   render() {
     return (
       <AdIconViewContext.Consumer>
-        {register => <AdIconViewChild {...this.props} register={register} />}
+        {(contextValue: AdIconViewContextValueType) => (
+          <AdIconViewChild {...this.props} {...contextValue} />
+        )}
       </AdIconViewContext.Consumer>
     );
   }

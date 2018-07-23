@@ -1,4 +1,4 @@
-// @flow-weak
+// @flow
 
 import { NativeModules, NativeEventEmitter } from 'react-native';
 import { EventEmitter, EmitterSubscription } from 'fbemitter';
@@ -25,10 +25,10 @@ class NativeAdsManager {
   eventEmitter: EventEmitter = new EventEmitter();
 
   static async registerViewsForInteractionAsync(
-    nativeAdViewTag,
-    mediaViewTag,
-    adIconViewTag,
-    clickable
+    nativeAdViewTag: number,
+    mediaViewTag: number,
+    adIconViewTag: number,
+    clickable: Array<number>
   ) {
     return await CTKNativeAdManager.registerViewsForInteraction(
       nativeAdViewTag,

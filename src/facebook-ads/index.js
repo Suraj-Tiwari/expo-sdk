@@ -22,7 +22,7 @@ module.exports = {
   get AdIconView() {
     return require('./AdIconViewManager').default;
   },
-  get TriggerableFragment() {
-    return require('./TriggerableFragment').default;
+  get TriggerableView() {
+    return require('./TriggerableView').default;
   },
 };
