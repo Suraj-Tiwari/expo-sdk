@@ -25,7 +25,7 @@ export default class BarCodeScanner extends React.Component<Props> {
   };
 
   render() {
-    const props = { ...this.props };
+    const props: Props & { flashMode?: number } = { ...this.props };
     if (props.torchMode !== undefined) {
       if (typeof props.torchMode === 'string') {
         props.flashMode = BarCodeScanner.Constants.TorchMode[props.torchMode];
