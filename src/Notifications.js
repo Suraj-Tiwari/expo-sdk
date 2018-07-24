@@ -183,8 +183,10 @@ export default {
     return ExponentNotifications.getExponentPushTokenAsync();
   },
 
-  /* Re-export, we can add flow here if we want as well */
-  getDevicePushTokenAsync: ExponentNotifications.getDevicePushTokenAsync,
+  getDevicePushTokenAsync: (
+    config: { gcmSenderId?: string }
+  ): Promise<{ type: string, data: string }> =>
+    ExponentNotifications.getDevicePushTokenAsync(config || {}),
 
   createChannelAndroidAsync(id: string, channel: Channel): Promise<void> {
     if (Platform.OS === 'ios') {
