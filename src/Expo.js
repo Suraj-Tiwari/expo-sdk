@@ -217,7 +217,7 @@ module.exports = {
     return require('expo-permissions').Permissions;
   },
   get Print() {
-    return require('./Print');
+    return require('expo-print').Print;
   },
   get Facebook() {
     return require('./Facebook').default;
