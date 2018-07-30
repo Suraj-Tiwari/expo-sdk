@@ -26,7 +26,7 @@ module.exports = {
     console.warn(
       'Print is no longer in DangerZone, you can now import it directly from the expo package.'
     );
-    return require('./Print');
+    return require('expo-print').Print;
   },
   get DeviceMotion() {
     return require('expo-sensors').DeviceMotion;
