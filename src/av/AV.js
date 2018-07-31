@@ -81,7 +81,7 @@ const _getAssetFromPlaybackSource = (source: ?PlaybackSource): ?Asset => {
   let asset: ?Asset = null;
   if (typeof source === 'number') {
     asset = Asset.fromModule(source);
-  } else if ('constructor' in source && source.constructor.name === 'Asset') {
+  } else if (source instanceof Asset) {
     asset = source;
   }
   return asset;
