@@ -86,7 +86,7 @@ export default <T>(Component: React.ComponentType<T>) =>
 
       this._registerFunctionsForAdIconView = {
         unregister: this._unregisterAdIconView,
-        register: this._registerMediaView,
+        register: this._registerAdIconView,
       };
 
       this._clickableChildrenNodeHandles = {};
@@ -111,7 +111,7 @@ export default <T>(Component: React.ComponentType<T>) =>
     }
 
     componentDidUpdate(prevProps: NativeAdWrapperProps, prevState: NativeAdWrapperState) {
-      if (this.state.mediaViewNodeHandle !== -1) {
+     if (this.state.mediaViewNodeHandle !== -1 || this.state.adIconViewNodeHandle !== -1) {
         const mediaViewNodeHandleChanged =
           this.state.mediaViewNodeHandle !== prevState.mediaViewNodeHandle;
         const adIconViewNodeHandleChanged =
